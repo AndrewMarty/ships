@@ -1,0 +1,16 @@
+.cell {
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	&_shoot {
+		background: rgb(204, 40, 18);
+		cursor: auto;
+		pointer-events: none;
+	}
+	&_ship {
+		background: rgb(14, 150, 32);
+	}
+}

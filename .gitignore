@@ -2,15 +2,11 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
+server/node_modules
 # production
 /build
-
+package-lock.json
+server/package-lock.json
 # misc
 .DS_Store
 .env.local
