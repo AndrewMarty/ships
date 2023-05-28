@@ -9,14 +9,18 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", socket => {
-	let room;
+	socket.on("shoot", data => {
+		socket.broadcast.emit("getShoot", data);
+	});
+	socket.on("newMessage", message => {
+		socket.broadcast.emit("getMessage", message);
+	});
 	socket.on("userJoin", data => {
-		room = data.room;
-		socket.join(data.room);
 		console.log(`User: ${data.name} was connected to room: ${data.room}`);
+		socket.emit("getOpponent", "Antoska");
 	});
 	socket.on("message", data => {
-		socket.broadcast.to(room).emit("getMessage", data);
+		socket.emit("getMessage", data);
 	});
 });
 

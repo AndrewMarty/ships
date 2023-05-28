@@ -2,20 +2,33 @@ import React from "react";
 import "./Board.scss";
 import Cell from "../Cell/Cell";
 import BoardClass from "../../models/Board";
+import CellClass from "../../models/Cell";
 interface IBoard {
 	board: BoardClass;
 	onClick: Function;
-	isMain?: boolean;
+	typeOf: string;
+	oponentMarks?: IMark[];
 }
-const Board = ({ board, onClick, isMain }: IBoard) => {
+interface IMark {
+	x: number;
+	y: number;
+}
+const Board = ({ board, onClick, typeOf, oponentMarks }: IBoard) => {
+	function findCell(cell: CellClass): boolean {
+		const element = oponentMarks?.find(mark => {
+			return mark.x === cell.x && mark.y === cell.y;
+		});
+		return element !== undefined;
+	}
 	return (
 		<div className="board">
-			{board.getCells().map(cell => (
+			{board.getCells().map((cell, index) => (
 				<Cell
-					typeOf={"dsf"}
-					onClick={() => {
-						onClick(cell.x, cell.y);
-					}}
+					key={index}
+					position={{ x: cell.x, y: cell.y }}
+					typeOf={typeOf}
+					onClick={onClick}
+					was={findCell(cell)}
 				/>
 			))}
 		</div>

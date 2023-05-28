@@ -4,6 +4,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-style: solid;
+	border-color: black;
+	border-left: 1px;
+	border-top: 1px;
 	cursor: pointer;
 	&_shoot {
 		background: rgb(204, 40, 18);
@@ -12,5 +16,8 @@
 	}
 	&_ship {
 		background: rgb(14, 150, 32);
+	}
+	&_was {
+		background-color: aqua;
 	}
 }

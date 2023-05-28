@@ -1,6 +1,9 @@
 .board {
-	border: 1px solid black;
+	border-style: solid;
+	border-color: black;
+	border-bottom: 1px;
+	border-right: 1px;
 	display: flex;
-	max-width: 300px;
+	max-width: 303px;
 	flex-wrap: wrap;
 }

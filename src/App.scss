@@ -1,8 +1,24 @@
 .App {
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	min-width: 100vw;
+	&__wrapper {
+		text-align: center;
+	}
+	&__title {
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
 	&__boards {
 		display: flex;
 		justify-content: center;
 		column-gap: 10px;
+	}
+	&__button_ready {
+		padding: 10px;
+		border-radius: 10px;
+		border: 1px solid #000;
 	}
 }
